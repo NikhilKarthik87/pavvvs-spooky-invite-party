@@ -58,7 +58,16 @@ const PartyForm: React.FC<PartyFormProps> = ({ onSubmit, isSubmitting }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-12 max-w-2xl mx-auto">
+    <form 
+      action="https://formsubmit.co/nickiskick@gmail.com" 
+      method="POST"
+      onSubmit={handleSubmit} 
+      className="space-y-12 max-w-2xl mx-auto"
+    >
+      {/* Hidden fields for FormSubmit configuration */}
+      <input type="hidden" name="_subject" value="Birthday Party RSVP" />
+      <input type="hidden" name="_template" value="table" />
+      
       <Card className="bg-halloween-dark border border-halloween-purple animate-float spooky-shadow">
         <CardContent className="pt-6">
           <div className="flex items-center mb-4">
@@ -69,9 +78,10 @@ const PartyForm: React.FC<PartyFormProps> = ({ onSubmit, isSubmitting }) => {
           <RadioGroup
             value={formData.attending}
             className="mt-2"
+            name="attending"
           >
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="Yoooo Bruh... For Suree.. (I left you no choice 😉)" id="attending" checked readOnly />
+              <RadioGroupItem value="Yoooo Bruh... For Suree.. (I left you no choice 😉)" id="attending" checked />
               <Label htmlFor="attending" className="text-md font-semibold text-halloween-orange">
                 Yoooo Bruh... For Suree.. (I left you no choice 😉)
               </Label>
@@ -91,6 +101,7 @@ const PartyForm: React.FC<PartyFormProps> = ({ onSubmit, isSubmitting }) => {
             value={formData.food}
             onValueChange={(value) => handleChange("food", value)}
             className="mt-2 space-y-2"
+            name="food"
           >
             {["Pizza", "Chicken Biryani", "Veg Biryani", "Pasta", "Others"].map((option) => (
               <div key={option} className="flex items-center space-x-2">
@@ -109,6 +120,7 @@ const PartyForm: React.FC<PartyFormProps> = ({ onSubmit, isSubmitting }) => {
               </Label>
               <Input
                 id="customFood"
+                name="customFood"
                 value={formData.customFood}
                 onChange={(e) => handleChange("customFood", e.target.value)}
                 className="bg-muted text-white"
@@ -129,6 +141,7 @@ const PartyForm: React.FC<PartyFormProps> = ({ onSubmit, isSubmitting }) => {
             value={formData.drink}
             onValueChange={(value) => handleChange("drink", value)}
             className="mt-2 space-y-2"
+            name="drink"
           >
             {["Alcohol", "Wine", "Beer", "Water", "Juice"].map((option) => (
               <div key={option} className="flex items-center space-x-2">

@@ -6,31 +6,23 @@ interface FormData {
   drink: string;
 }
 
+// When using FormSubmit.co, this function is really just a backup
+// in case the form action doesn't work properly
 const sendEmail = async (data: FormData): Promise<boolean> => {
   try {
-    // Prepare the message body
-    const body = JSON.stringify({
-      to: "nickiskick@gmail.com",
-      subject: "Birthday Party RSVP",
-      message: `
-        New Party RSVP:
-        
-        Attending: ${data.attending}
-        Food Choice: ${data.food}
-        ${data.food === "Others" ? `Custom Food: ${data.customFood}` : ''}
-        Drink Choice: ${data.drink}
-      `
-    });
+    // FormSubmit.co handling is done via the form's action attribute
+    // This is a fallback method that could be used if needed
     
-    // In a real app, we'd send this data to a backend service
-    // For now, we'll use a mock email service
-    // This would be replaced with a real API call
-
     // Simulate API call with delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // Log the data that would be sent
-    console.log("Sending email with data:", body);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Log the data that would have been sent
+    console.log("Email data (handled via FormSubmit.co):", {
+      attending: data.attending,
+      food: data.food,
+      customFood: data.food === "Others" ? data.customFood : '',
+      drink: data.drink
+    });
     
     return true;
   } catch (error) {

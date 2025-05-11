@@ -5,7 +5,7 @@ import PartyForm from '../components/PartyForm';
 import ThankYou from '../components/ThankYou';
 import sendEmail from '../services/EmailService';
 import { useToast } from "@/components/ui/use-toast";
-import { Halloween } from "lucide-react";
+import { Skull } from "lucide-react";
 
 interface FormData {
   attending: string;
@@ -74,7 +74,7 @@ const Index = () => {
       <div className="max-w-4xl mx-auto">
         <div className={`text-center ${introComplete ? 'animate-fade-in' : 'opacity-0'}`}>
           <div className="flex justify-center mb-4">
-            <Halloween className="text-halloween-orange h-16 w-16" />
+            <Skull className="text-halloween-orange h-16 w-16" />
           </div>
           <h1 className="text-5xl sm:text-7xl font-creepster text-white glow-text mb-4">
             Yooo.... Pavvvs
