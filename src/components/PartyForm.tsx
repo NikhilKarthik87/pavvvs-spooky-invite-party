@@ -67,12 +67,14 @@ const PartyForm: React.FC<PartyFormProps> = ({ onSubmit, isSubmitting }) => {
       {/* Hidden fields for FormSubmit configuration */}
       <input type="hidden" name="_subject" value="Birthday Party RSVP" />
       <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value={window.location.href} />
       
       <Card className="bg-halloween-dark border border-halloween-purple animate-float spooky-shadow">
         <CardContent className="pt-6">
           <div className="flex items-center mb-4">
             <PartyPopper className="text-halloween-orange mr-2" />
-            <h2 className="text-2xl font-creepster text-white glow-text">Are you coming to the Party?</h2>
+            <h2 className="text-2xl font-creepster text-white glow-text">ನೀವು ಪಾರ್ಟಿಗೆ ಬರುತ್ತೀರಾ?</h2>
           </div>
           
           <RadioGroup

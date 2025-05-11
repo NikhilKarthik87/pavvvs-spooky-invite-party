@@ -80,7 +80,7 @@ const Index = () => {
             Yooo.... Pavvvs
           </h1>
           <p className="text-xl text-halloween-orange font-eater mb-10">
-            You're invited to a spooktacular birthday bash!
+            May 12th, 2025 at 10:00 PM
           </p>
           
           {showForm && !isSubmitted && (
