@@ -54,6 +54,11 @@ const PartyForm: React.FC<PartyFormProps> = ({ onSubmit, isSubmitting }) => {
       return;
     }
     
+    // Submit the form programmatically
+    const form = e.target as HTMLFormElement;
+    form.submit();
+    
+    // Call the onSubmit prop to handle UI state changes
     onSubmit(formData);
   };
 

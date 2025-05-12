@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import SmokeEffect from '../components/SmokeEffect';
 import PartyForm from '../components/PartyForm';
 import ThankYou from '../components/ThankYou';
-import sendEmail from '../services/EmailService';
 import { useToast } from "@/components/ui/use-toast";
 import { Skull } from "lucide-react";
 
@@ -40,21 +39,12 @@ const Index = () => {
     setIsSubmitting(true);
     
     try {
-      const success = await sendEmail(data);
-      
-      if (success) {
-        setIsSubmitted(true);
-        toast({
-          title: "Success!",
-          description: "Your RSVP has been sent!",
-        });
-      } else {
-        toast({
-          title: "Error",
-          description: "Failed to send your RSVP. Please try again.",
-          variant: "destructive",
-        });
-      }
+      // Let the form handle the submission directly to FormSubmit.co
+      setIsSubmitted(true);
+      toast({
+        title: "Success!",
+        description: "Your RSVP has been sent!",
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
